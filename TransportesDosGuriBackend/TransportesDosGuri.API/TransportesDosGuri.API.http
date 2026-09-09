@@ -1,0 +1,6 @@
+@TransportesDosGuri.API_HostAddress = http://localhost:5125
+
+GET {{TransportesDosGuri.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
