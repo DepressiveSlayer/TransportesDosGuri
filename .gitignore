@@ -427,3 +427,10 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Ignorar arquivos de configuração com dados sensíveis
+**/appsettings.json
+**/appsettings.*.json
+
+# Exceção: Manter o arquivo de exemplo no Git
+!**/appsettings.Example.json
