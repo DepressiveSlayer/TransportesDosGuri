@@ -36,7 +36,13 @@ namespace TransportesDosGuri.Infrastructure.Repositories
                 );
                 """;
 
-            userRequest.Id = await connection.ExecuteScalarAsync<long>(sql, userRequest);
+            userRequest.Id = await connection.ExecuteScalarAsync<long>(sql, new
+            {
+                userRequest.Price,
+                DueDate = userRequest.DueDate.ToDateTime(TimeOnly.MinValue), // Conversão aqui
+                userRequest.ApplicationUserId,
+                userRequest.AsaasSubscriptionId
+            });
         }
 
         public async Task DeleteAsync(long id)
